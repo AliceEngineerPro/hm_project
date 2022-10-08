@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+@File: index.html
+@Author: Alice(From Chengdu.China)
+@HomePage: https://github.com/AliceEngineerPro
+@CreatedTime: 2022/9/14 21:46
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<ul>
+    {% for book_info_data in book_info_datas %}
+        <li>{{ book_info_data.name }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

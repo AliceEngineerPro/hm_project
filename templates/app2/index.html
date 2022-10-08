@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+@File: index.html
+@Author: Alice(From Chengdu.China)
+@HomePage: https://github.com/AliceEngineerPro
+@CreatedTime: 2022/9/25 2:44
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<div>我的信息</div>
+<div>名字:<p>{{ name }}</p></div>
+<div>年龄:<p>{{ age }}</p></div>
+<div>生日:<p>{{ birthday }}</p></div>
+<div>朋友:<br>
+{% for friend in friends %}
+    <p>{{ friend }}</p>
+{% endfor %}
+</div>
+<div>女朋友<p>{{ friends.2 }}</p></div>
+<div>工资:<br>
+{% for key, value in salary.items %}
+<p>{{ key }}年 --> {{ value }}元</p>
+{% endfor %}
+</div>
+</body>
+</html>
