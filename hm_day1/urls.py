@@ -20,10 +20,12 @@ from django.urls import include
 from django.views.generic.base import RedirectView
 import app1.urls
 import app2.urls
+import app3.urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     re_path(r'^favicon.ico$', RedirectView.as_view(url=f'https://file.share.alicehome.ltd/pic/logo.ico')),
     re_path(r'^app1/', include((app1.urls, 'app1'), namespace='app1')),
-    re_path(r'^app2/', include((app2.urls, 'app2'), namespace='app2'))
+    re_path(r'^app2/', include((app2.urls, 'app2'), namespace='app2')),
+    re_path(r'^app3/', include((app3.urls, 'app3'), namespace='app3')),
 ]
