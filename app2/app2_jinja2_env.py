@@ -17,6 +17,4 @@ def app2_jinja2_environment(**options):
     })
     
     return env
-    pass
-
 
