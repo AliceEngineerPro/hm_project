@@ -21,6 +21,7 @@ from django.views.generic.base import RedirectView
 import app1.urls
 import app2.urls
 import app3.urls
+import set_session.urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -28,4 +29,5 @@ urlpatterns = [
     re_path(r'^app1/', include((app1.urls, 'app1'), namespace='app1')),
     re_path(r'^app2/', include((app2.urls, 'app2'), namespace='app2')),
     re_path(r'^app3/', include((app3.urls, 'app3'), namespace='app3')),
+    re_path(r'^set_session/', include((set_session.urls, 'set_session'), namespace='set_session'))
 ]
