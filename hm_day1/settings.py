@@ -24,6 +24,7 @@ SECRET_KEY = "django-insecure-awgq#k*9-&fyz_twjvo!6j!$$r1=gova2d#^m2&wy*wh!d8^iy
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     
     'app1.apps.App1Config',
     'app2.apps.App2Config',
+    'app3.apps.App3Config',
+    'set_session.apps.SetSessionConfig'
 ]
 
 # 中间件
@@ -108,16 +111,16 @@ WSGI_APPLICATION = "hm_day1.wsgi.application"
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': "django.db.backends.mysql",
-#         'HOST': '10.31.101.2',
-#         'PORT': 13306,
-#         'USER': 'root',
-#         'PASSWORD': 'root',
-#         'NAME': 'hm_day1'
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': "django.db.backends.mysql",
+        'HOST': '10.31.101.2',
+        'PORT': 13306,
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'NAME': 'hm_day1'
+    }
+}
 
 
 # Password validation
@@ -154,3 +157,17 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# redis 默认
+# SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+# cache缓存
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://10.31.101.2:6379/2',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+
