@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'app1.apps.App1Config',
     'app2.apps.App2Config',
     'app3.apps.App3Config',
-    'set_session.apps.SetSessionConfig'
+    'set_session.apps.SetSessionConfig',
+    'csrf_l.apps.CsrfLConfig',
 ]
 
 # 中间件
@@ -160,6 +161,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # redis 默认
 # SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+# 更改为redis
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+SESSION_CACHE_ALIAS = 'default'
 # cache缓存
 CACHES = {
     'default': {

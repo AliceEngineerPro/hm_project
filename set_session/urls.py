@@ -13,5 +13,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
     re_path(route=r'^set_session/$', view=csrf_exempt(views.SetSession.as_view()), name='set_session'),
+    re_path(route=r'^get_session/$', view=csrf_exempt(views.GetSession.as_view()), name='set_session'),
     
 ]
