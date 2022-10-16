@@ -38,12 +38,19 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # cors
+    'corsheaders',
+    # rest_framework
+    'rest_framework',
     
+    # apps
     'app1.apps.App1Config',
     'app2.apps.App2Config',
     'app3.apps.App3Config',
     'set_session.apps.SetSessionConfig',
     'csrf_l.apps.CsrfLConfig',
+    'UseRestFramework.apps.UserestframeworkConfig',
+    'Books.apps.BooksConfig',
 ]
 
 # 中间件
@@ -55,6 +62,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    
+    # cors
+    'corsheaders.middleware.CorsMiddleware',
     
     # 'app1.middleware.SimpleMiddleware1',
     # 'app1.middleware.SimpleMiddleware2'
@@ -174,4 +184,23 @@ CACHES = {
         }
     }
 }
+
+APPEND_SLASH = False
+
+# CORS 跨域全部通过
+CORS_ORIGIN_ALLOW_ALL = False
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS 白名单
+CORS_ORIGIN_WHITELIST = (
+    'http://127.0.0.1',
+    'http://localhost',
+    'http://10.31.*.*',
+)
+# CORS 运行请求的方法
+CORS_ALLOW_METHODS = (
+    'GET',
+    'POST',
+    'PUT',
+    'DELETE',
+)
 

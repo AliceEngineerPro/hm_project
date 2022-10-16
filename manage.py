@@ -2,11 +2,14 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from django.core.management.commands.runserver import Command
 
 
 def main():
     """Run administrative tasks."""
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hm_day1.settings")
+    Command.default_addr = '127.0.0.1'
+    Command.default_port = '52001'
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:

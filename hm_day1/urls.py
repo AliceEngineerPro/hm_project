@@ -23,6 +23,8 @@ import app2.urls
 import app3.urls
 import set_session.urls
 import csrf_l.urls
+import Books.urls
+import UseRestFramework.urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -31,6 +33,8 @@ urlpatterns = [
     re_path(r'^app2/', include((app2.urls, 'app2'), namespace='app2')),
     re_path(r'^app3/', include((app3.urls, 'app3'), namespace='app3')),
     re_path(r'^session/', include((set_session.urls, 'set_session'), namespace='session')),
-    re_path(r'^csrf/', include((csrf_l.urls, 'csrf_l'), namespace='csrf_l'))
+    re_path(r'^csrf/', include((csrf_l.urls, 'csrf_l'), namespace='csrf_l')),
+    re_path(route='^books/', view=include((Books.urls, 'Books'), namespace='books')),
+    re_path(route='^use_rest_framework/', view=include((UseRestFramework.urls, 'UseRestFramework'), namespace='use_rest_framework')),
     
 ]
